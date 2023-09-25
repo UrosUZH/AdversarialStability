@@ -2,27 +2,24 @@
 
 Create Models and Evaluate
 
-
-
-## Getting Started
-
-### Installing
+## Installing
 
 * Download git repo
-* * Create conda env
-* 
+* Create conda env
 ```
 conda env create -f environment.yml
 conda activate adv2
 ```
 * Install vast https://github.com/Vastlab/vast
 * Install advertorch https://github.com/BorealisAI/advertorch
-* Change lines in advertorch code if needed:
+* Change lines in advertorch code if needed e.g. here commented out:
+* advertorch.utils.py:
 ```
 def predict_from_logits(logits, dim=1):
     # return logits.max(dim=dim, keepdim=False)[1]
     return logits[0].max(dim=dim, keepdim=False)[1]
 ```
+* advertorch.attacks.one_step_gradient.py:
 ```
 class GradientSignAttack(Attack, LabelMixin):
     """
@@ -76,14 +73,8 @@ class GradientSignAttack(Attack, LabelMixin):
 
 ### Executing program
 
-* Create Models with MNIST_SoftMax_Training.py
-* Evaluate Models with EvaluateAdv.py and Evaluate.OSCR.py
+* Create models with MNIST_SoftMax_Training.py
+* Evaluate models with EvaluateAdv.py and Evaluate.OSCR.py
 
 
 
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
