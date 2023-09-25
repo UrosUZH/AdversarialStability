@@ -5,7 +5,7 @@ Create Models and Evaluate
 ## Installing
 
 * Download git repo
-* Create conda env
+* Create conda environment from .yml file
 ```
 conda env create -f environment.yml
 conda activate adv2
@@ -13,13 +13,13 @@ conda activate adv2
 * Install vast https://github.com/Vastlab/vast
 * Install advertorch https://github.com/BorealisAI/advertorch
 * Change lines in advertorch code if needed e.g. here commented out:
-* advertorch.utils.py:
+advertorch.utils.py
 ```
 def predict_from_logits(logits, dim=1):
     # return logits.max(dim=dim, keepdim=False)[1]
     return logits[0].max(dim=dim, keepdim=False)[1]
 ```
-* advertorch.attacks.one_step_gradient.py:
+advertorch.attacks.one_step_gradient.py:
 ```
 class GradientSignAttack(Attack, LabelMixin):
     """
